@@ -92,4 +92,25 @@ function drawMandelbrot() {
     ctx.putImageData(image, 0, 0);
 }
 
+canvas.addEventListener("click", function (event) {
+    var rect = canvas.getBoundingClientRect();
+    var mouseX = event.clientX - rect.left;
+    var mouseY = event.clientY - rect.top;
+
+    var clickedX = minX + (mouseX / width) * (maxX - minX);
+    var clickedY = minY + (mouseY / height) * (maxY - minY);
+
+    var zoomFactor = 0.5;
+
+    var rangeX = (maxX - minX) * zoomFactor;
+    var rangeY = (maxY - minY) * zoomFactor;
+
+    minX = clickedX - rangeX / 2;
+    maxX = clickedX + rangeX / 2;
+    minY = clickedY - rangeY / 2;
+    maxY = clickedY + rangeY / 2;
+
+    drawMandelbrot();
+});
+
 drawMandelbrot();
