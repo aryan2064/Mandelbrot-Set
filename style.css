@@ -24,3 +24,21 @@ canvas {
   cursor: crosshair;
   background: black;
 }
+
+.buttons {
+  margin: 10px 0 14px 0;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 0 4px;
+  border: none;
+  border-radius: 6px;
+  background: #2e8b57;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3da76a;
+}
