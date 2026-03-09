@@ -76,4 +76,29 @@ canvas.addEventListener("click", function(event) {
     drawMandelbrot();
 });
 
+document.getElementById("zoomOutBtn").addEventListener("click", function () {
+  var centerX = (minX + maxX) / 2;
+  var centerY = (minY + maxY) / 2;
+
+  var zoomOutFactor = 2;
+
+  var rangeX = (maxX - minX) * zoomOutFactor;
+  var rangeY = (maxY - minY) * zoomOutFactor;
+
+  minX = centerX - rangeX / 2;
+  maxX = centerX + rangeX / 2;
+  minY = centerY - rangeY / 2;
+  maxY = centerY + rangeY / 2;
+
+  drawMandelbrot();
+});
+
+document.getElementById("resetBtn").addEventListener("click", function () {
+  minX = -2.5;
+  maxX = 1;
+  minY = -1.5;
+  maxY = 1.5;
+  drawMandelbrot();
+});
+
 drawMandelbrot();
